@@ -1,0 +1,6 @@
+Mirror configs for Rockchip BSP packages.
+
+How to use:
+1/ Put mirror.conf under build/conf
+2/ Include it when running bitbake, e.g.:
+build# bitbake core-image-minimal -r conf/mirror.conf
