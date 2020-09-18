@@ -4,3 +4,12 @@ How to use:
 1/ Put mirror.conf under build/conf
 2/ Include it when running bitbake, e.g.:
 build# bitbake core-image-minimal -r conf/mirror.conf
+
+NOTE:
+The older meta-rockchip(e.g. release-1.2.0) puts rockchip-alsa-config
+in the alsa-lib package, which needs:
+-SRC_URI_pn-rockchip-alsa-config = "${RK_MIRROR};branch=alsa-config"
++SRC_URI_pn-alsa-lib = " \
++        ftp://ftp.alsa-project.org/pub/lib/${BP}.tar.bz2 \
++        ${RK_MIRROR};branch=alsa-config;name=rk-alsa-config \
++"
