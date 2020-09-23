@@ -7,9 +7,11 @@ build# bitbake core-image-minimal -r conf/mirror.conf
 
 NOTE:
 The older meta-rockchip(e.g. release-1.2.0) puts rockchip-alsa-config
-in the alsa-lib package, which needs:
--SRC_URI_pn-rockchip-alsa-config = "${RK_MIRROR};branch=alsa-config"
-+SRC_URI_pn-alsa-lib = " \
-+        ftp://ftp.alsa-project.org/pub/lib/${BP}.tar.bz2 \
-+        ${RK_MIRROR};branch=alsa-config;name=rk-alsa-config \
-+"
+in the alsa-lib package, which needs to uncomment these:
+## For older meta-rockchip.
+#SRC_URI_pn-alsa-lib = " \
+#        ftp://ftp.alsa-project.org/pub/lib/${BP}.tar.bz2 \
+#        ${RK_MIRROR};branch=alsa-config;name=rk-alsa-config \
+#"
+#SRC_URI_pn-alsa-lib-native = "${SRC_URI_pn-alsa-lib}"
+#SRC_URI_pn-nativesdk-alsa-lib = "${SRC_URI_pn-alsa-lib}"
